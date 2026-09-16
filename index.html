@@ -3,85 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RC Online Services | Nildoh</title>
-<meta name="description" content="RC Online Services - Online form filling and document services in Old Nildoh and New Nildoh Village.">
+<meta name="description" content="RC Online Services - Fast and reliable online services.">
+<title>RC Online Services</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,Helvetica,sans-serif;background:#f4f7fb;color:#172033;line-height:1.5}
-header{background:linear-gradient(135deg,#071b49,#0b4fa8);color:#fff;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}
-.logo{font-size:24px;font-weight:800}.tag{font-size:12px;opacity:.9}
-nav a{color:#fff;text-decoration:none;margin-left:18px;font-weight:600;font-size:14px}
-.hero{background:linear-gradient(135deg,#071b49,#1674d1);color:white;padding:70px 6% 65px}
-.hero h1{font-size:clamp(38px,8vw,68px);line-height:1.05;margin-bottom:16px}
-.hero h1 span{color:#ffd21a}.hero p{max-width:650px;font-size:19px;opacity:.95}
-.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
-.btn{display:inline-block;padding:13px 20px;border-radius:12px;text-decoration:none;font-weight:800}
-.primary{background:#ffd21a;color:#111}.secondary{background:#fff;color:#07377c}
-.section{padding:50px 6%;max-width:1200px;margin:auto}
-.title{text-align:center;font-size:30px;margin-bottom:28px}
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.card{background:white;border-radius:18px;padding:22px;box-shadow:0 8px 25px #102a4d12;border:1px solid #e6ebf2}
-.card h3{font-size:18px;margin-bottom:8px}.price{font-size:20px;font-weight:800;color:#0a57b5}
-.badge{display:inline-block;background:#eaf3ff;color:#0759b5;border-radius:20px;padding:5px 10px;font-size:12px;font-weight:700;margin-bottom:12px}
-.area{background:#fff3c4;border-left:5px solid #ffd21a;padding:18px;border-radius:12px}
-.contact{background:#071b49;color:#fff;border-radius:22px;padding:35px;text-align:center}
-.contact h2{font-size:30px;margin-bottom:10px}
-footer{background:#06132e;color:#cbd6e8;text-align:center;padding:25px 6%;font-size:13px}
-.small{font-size:13px;color:#667085;margin-top:10px}
-@media(max-width:700px){header{padding:14px 5%}nav{display:none}.hero{padding:55px 5%}.section{padding:40px 5%}.contact{padding:28px 18px}}
+:root{--bg:#07111f;--card:#0d1b2e;--text:#f5f9ff;--muted:#9db0c8;--blue:#1d8cff;--cyan:#35d7ff;--line:rgba(255,255,255,.09)}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#06101d,#0b1730 55%,#07111f);color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(5,13,25,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:22px;font-weight:800}.logo span{color:var(--cyan)}
+nav a{margin-left:24px;color:#dbe8f7;font-size:14px}
+.hero{padding:85px 0 65px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:#168bff;filter:blur(120px);opacity:.18;right:-100px;top:20px}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:45px;align-items:center}
+.badge{display:inline-block;padding:8px 14px;border:1px solid rgba(53,215,255,.3);border-radius:30px;color:var(--cyan);background:rgba(53,215,255,.06);font-size:13px;margin-bottom:20px}
+h1{font-size:clamp(40px,6vw,70px);line-height:1.05;letter-spacing:-2px;margin-bottom:20px}
+h1 span{background:linear-gradient(90deg,#35d7ff,#5d8dff);-webkit-background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:18px;max-width:620px}
+.buttons{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn{padding:13px 20px;border-radius:12px;font-weight:700;display:inline-block}
+.primary{background:linear-gradient(90deg,#168bff,#35bfff);box-shadow:0 10px 30px rgba(29,140,255,.22)}
+.secondary{border:1px solid var(--line);background:rgba(255,255,255,.04)}
+.hero-card{background:linear-gradient(145deg,rgba(20,47,78,.9),rgba(10,24,42,.9));border:1px solid var(--line);padding:28px;border-radius:25px;box-shadow:0 25px 70px rgba(0,0,0,.25)}
+.circle{width:92px;height:92px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#168bff,#35d7ff);font-size:35px;font-weight:900;margin-bottom:20px}
+.hero-card h3{font-size:25px;margin-bottom:8px}.hero-card p{font-size:14px}
+section{padding:70px 0}
+.section-title{text-align:center;margin-bottom:35px}.section-title h2{font-size:36px;margin-bottom:8px}.section-title p{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{padding:25px;background:rgba(13,27,46,.82);border:1px solid var(--line);border-radius:20px;transition:.25s}
+.card:hover{transform:translateY(-6px);border-color:rgba(53,215,255,.35)}
+.icon{font-size:30px;margin-bottom:14px}.card h3{margin-bottom:7px}.card p{color:var(--muted);font-size:14px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.panel{padding:30px;border-radius:22px;background:rgba(255,255,255,.035);border:1px solid var(--line)}
+.list{margin-top:18px;display:grid;gap:12px}.list div{padding:12px 14px;background:rgba(255,255,255,.035);border-radius:12px}
+.contact{text-align:center;background:linear-gradient(135deg,rgba(29,140,255,.12),rgba(53,215,255,.05));border:1px solid var(--line);border-radius:28px;padding:50px 20px}
+footer{padding:30px 0;color:var(--muted);border-top:1px solid var(--line);text-align:center;font-size:13px}
+@media(max-width:800px){nav{display:none}.hero{padding-top:55px}.hero-grid,.about{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.hero-card{margin-top:10px}section{padding:50px 0}}
 </style>
 </head>
 <body>
 <header>
-  <div><div class="logo">RC Online Services</div><div class="tag">Fast • Safe • Reliable</div></div>
-  <nav><a href="#services">Services</a><a href="#area">Area</a><a href="#contact">Contact</a></nav>
+<div class="container nav">
+<a class="logo" href="#">RC <span>ONLINE SERVICES</span></a>
+<nav><a href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+</div>
 </header>
 
+<main id="home">
 <section class="hero">
-  <h1>Online Kaam,<br><span>Aasaan Kaam.</span></h1>
-  <p>Online form filling, document upload, PDF work, resume/CV and other digital services — conveniently available for <b>Old Nildoh Village</b> and <b>New Nildoh Village</b>.</p>
-  <div class="buttons">
-    <a class="btn primary" href="https://wa.me/919356334832?text=Hello%20RC%20Online%20Services%2C%20mujhe%20online%20service%20chahiye." target="_blank">💬 WhatsApp Now</a>
-    <a class="btn secondary" href="tel:+919356334832">📞 Call 9356334832</a>
-  </div>
+<div class="container hero-grid">
+<div>
+<div class="badge">⚡ Fast • Simple • Reliable</div>
+<h1>Your Online Services,<br><span>Made Easy.</span></h1>
+<p>Welcome to RC Online Services. Get your important online work and digital services handled quickly and conveniently.</p>
+<div class="buttons">
+<a class="btn primary" href="#services">Explore Services →</a>
+<a class="btn secondary" href="#contact">Contact Us</a>
+</div>
+</div>
+<div class="hero-card">
+<div class="circle">RC</div>
+<h3>RC Online Services</h3>
+<p>Professional digital assistance with a clean, fast and mobile-friendly experience.</p>
+<div class="list">
+<div>✓ Quick online assistance</div>
+<div>✓ Easy process</div>
+<div>✓ Customer support</div>
+</div>
+</div>
+</div>
 </section>
 
-<section class="section" id="services">
-  <h2 class="title">Our Services & Charges</h2>
-  <div class="services">
-    <div class="card"><span class="badge">FORM</span><h3>Job / Exam Form</h3><p>Online application & form filling</p><div class="price">₹100–₹300</div></div>
-    <div class="card"><span class="badge">EDUCATION</span><h3>Scholarship Form</h3><p>Scholarship application assistance</p><div class="price">₹100–₹250</div></div>
-    <div class="card"><span class="badge">ADMISSION</span><h3>College Admission</h3><p>Online admission application</p><div class="price">₹150–₹400</div></div>
-    <div class="card"><span class="badge">CV</span><h3>Resume / CV</h3><p>Professional resume & PDF</p><div class="price">₹100–₹300</div></div>
-    <div class="card"><span class="badge">PDF</span><h3>PDF / Document Work</h3><p>Merge, compress & convert PDF</p><div class="price">₹50–₹200</div></div>
-    <div class="card"><span class="badge">UPLOAD</span><h3>Document Upload</h3><p>Photo, signature & document upload</p><div class="price">₹50–₹150</div></div>
-    <div class="card"><span class="badge">BILL</span><h3>Bill Payment / Recharge</h3><p>Utility and recharge assistance</p><div class="price">₹10–₹100</div></div>
-    <div class="card"><span class="badge">BOOKING</span><h3>Ticket Booking</h3><p>Train / Bus / Flight assistance</p><div class="price">₹50–₹500</div></div>
-    <div class="card"><span class="badge">ID SERVICES</span><h3>Aadhaar / PAN Related</h3><p>Assistance through official portals</p><div class="price">₹50–₹300</div></div>
-    <div class="card"><span class="badge">DOCUMENTS</span><h3>Print / Scan / Lamination</h3><p>Document preparation assistance</p><div class="price">₹5–₹50</div></div>
-  </div>
-  <p class="small">*Charges may vary depending on the form, portal and work required. Government/portal fees, where applicable, are separate.</p>
+<section id="services">
+<div class="container">
+<div class="section-title"><h2>Our Services</h2><p>Choose the service you need</p></div>
+<div class="cards">
+<div class="card"><div class="icon">🖥️</div><h3>Online Form</h3><p>Online forms and digital application assistance.</p></div>
+<div class="card"><div class="icon">📄</div><h3>Document Services</h3><p>Help with online document-related services and applications.</p></div>
+<div class="card"><div class="icon">🪪</div><h3>ID & Card Services</h3><p>Digital assistance for eligible ID and card related work.</p></div>
+<div class="card"><div class="icon">💳</div><h3>Online Payments</h3><p>Convenient assistance with supported online payment services.</p></div>
+<div class="card"><div class="icon">🖨️</div><h3>Print & Scan</h3><p>Printing, scanning and digital document support.</p></div>
+<div class="card"><div class="icon">📱</div><h3>Digital Assistance</h3><p>General online and digital service support.</p></div>
+</div>
+</div>
 </section>
 
-<section class="section" id="area">
-  <h2 class="title">Service Area</h2>
-  <div class="area">📍 <b>Old Nildoh Village & New Nildoh Village</b><br>Online service requests accepted from both areas.</div>
+<section id="about">
+<div class="container about">
+<div class="panel"><h2>Why Choose Us?</h2><p style="color:#9db0c8;margin-top:10px">We keep the process simple and easy to understand, especially on mobile devices.</p><div class="list"><div>🚀 Fast & easy process</div><div>📱 Mobile friendly</div><div>🤝 Helpful customer support</div></div></div>
+<div class="panel"><h2>Simple Process</h2><div class="list"><div><b>01</b> — Select your service</div><div><b>02</b> — Share required details</div><div><b>03</b> — Get assistance</div></div></div>
+</div>
 </section>
 
-<section class="section" id="contact">
-  <div class="contact">
-    <h2>RC Online Services</h2>
-    <p>Kaam karwana hai? WhatsApp ya call karein.</p>
-    <div class="buttons" style="justify-content:center">
-      <a class="btn primary" href="https://wa.me/919356334832?text=Hello%20RC%20Online%20Services%2C%20mujhe%20online%20service%20chahiye." target="_blank">💬 WhatsApp</a>
-      <a class="btn secondary" href="tel:+919356334832">📞 9356334832</a>
-    </div>
-  </div>
+<section id="contact">
+<div class="container">
+<div class="contact">
+<div class="badge">📞 Get in touch</div>
+<h2>Need Online Assistance?</h2>
+<p style="color:#9db0c8;margin:10px auto 24px;max-width:600px">Contact RC Online Services for more information about available services.</p>
+<div class="buttons" style="justify-content:center">
+<a class="btn primary" href="tel:+91XXXXXXXXXX">📞 Call Now</a>
+<a class="btn secondary" href="https://wa.me/91XXXXXXXXXX">💬 WhatsApp</a>
+</div>
+</div>
+</div>
 </section>
+</main>
 
-<footer>
-  © 2026 RC Online Services • Old Nildoh & New Nildoh Village<br>
-  Please share OTP/passwords only when genuinely required by an official process.
-</footer>
+<footer>© 2026 RC Online Services • All Rights Reserved</footer>
 </body>
 </html>
